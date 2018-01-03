@@ -14,4 +14,3 @@ args = parser.parse_args()
 words = open('').readlines()
 print([word for word in words if snippet in word.lower()])
 
-print(matches)
