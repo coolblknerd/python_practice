@@ -1,0 +1,12 @@
+#! /usr/bin/python
+
+import os
+
+with open('xmen.txt', 'a') as xmen_file:
+    xmen_file.write("Professor Xavier\n")
+
+xmen_file = open('xmen.txt', 'a')
+
+xmen_file.writelines(['\nMorph\n', 'Rouge\n'])
+
+xmen_file.close()
