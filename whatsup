@@ -1,0 +1,13 @@
+#! /usr/bin/python
+
+msg = raw_input("What do you want me to say? ")
+# When dealing with raw_input and expecting integers be sure to strip and 
+# convert the answer before using it or else the script will error out
+count = int(raw_input("How many times do you want me to repeat it? ").strip())
+
+def multi_echo(message, count):
+    while count > 0:
+        print message
+        count -= 1
+
+multi_echo(msg, count)
