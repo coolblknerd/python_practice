@@ -1,0 +1,24 @@
+#! /usr/bin/python
+
+filename = str(raw_input("What do you want to name this file? ")) + '.txt'
+lines = []
+
+print "Tell us what's on your mind?"
+with open(filename, "w") as file:
+    while True:
+        line = raw_input()
+        if line:
+            lines.append(line)
+        else:
+            break
+    
+    text = '\n'.join(lines)
+    
+    file.write(text)
+    file.close
+
+# new_file = open(filename, "w")
+# new_file.write(text)
+# new_file.close
+
+print "We're all done here!"
