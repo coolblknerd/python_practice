@@ -1,0 +1,14 @@
+#! /usr/bin/python
+
+import threading, time
+
+print("This is the start")
+
+def take_nap():
+    time.sleep(5)
+    print("Wake up!")
+
+new_thread = threading.Thread(target=take_nap)
+new_thread.start()
+
+print("It's over!!!")

@@ -1,0 +1,28 @@
+#! /usr/bin/python
+
+import argparse
+import requests
+
+parser = argparse.ArgumentParser(description="Takes a url and prints the contents to a given destination")
+parser.add_argument('url', type=str, help='A url to make a request to')
+parser.add_argument('destination', type=str, help='The destination the contents of the request will write to')
+parser.add_argument('--response', '-r',
+        choices=['json', 'html'], 
+        required=True, 
+        default='html', 
+        help="Choose the format you want the response to be written in.")
+
+args = parser.parse_args()
+dest = str(vars(args)['destination'])
+url = str(vars(args)['url'])
+response = str(vars(args)['response'])
+
+r = requests.get(url)
+content = None
+
+content = r.text if response == 'html' else r.json()
+txt_file = dest + '.txt'
+with open(txt_file, "w+") as file:
+    file.writelines(content.encode('ascii', 'ignore'))
+    print "Completed Request!"
+    file.close  

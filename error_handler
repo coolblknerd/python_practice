@@ -1,0 +1,16 @@
+#! /usr/bin/python
+
+import sys
+
+file_name = sys.argv[1]
+line_number = int(sys.argv[2].strip())
+
+try:
+    lines = open(file_name, 'r').readlines()
+    line = lines[line_number - 1]
+except IOError:
+    print "Error: This file doesn't exist!"
+except IndexError:
+    print "Error: File '%s' doesn't have %i lines." % (file_name, line_number)
+else:
+    print(line)
